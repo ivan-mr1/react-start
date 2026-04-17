@@ -1,0 +1,41 @@
+@use '@helpers' as *;
+
+.counter-icon {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &__count {
+    position: absolute;
+    top: 30px;
+    right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 2px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ffffff;
+    background-color: #d50c0c;
+    border-radius: 3px;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    pointer-events: none;
+
+    &--fav {
+      top: -5px;
+      right: -5px;
+      border-radius: 50%;
+    }
+
+    &.is-hidden {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+}

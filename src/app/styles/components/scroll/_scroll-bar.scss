@@ -1,0 +1,19 @@
+@use '@helpers' as *;
+
+.scroll-bar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+    border-radius: 10px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-orange) transparent;
+}
