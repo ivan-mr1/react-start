@@ -1,0 +1,55 @@
+@use '@helpers' as *;
+
+.scroll-up {
+  --color-scroll-up-bcg: #ffffff;
+  --color-scroll-up-path: var(--scroll-up, #9333ea);
+  --color-scroll-up-progress: #eeeeee;
+  --progress-width: 4px;
+
+  position: fixed;
+  z-index: 100;
+  right: calc(2rem + var(--scrollbar-width, 0px));
+  bottom: 2rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 var(--progress-width) var(--color-scroll-up-progress);
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    // Путь к картинке из public или через импорт в JS
+    background: url('/assets/icons/scroll-up.svg') center no-repeat;
+    background-size: 20px;
+    transform: rotate(-90deg);
+  }
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__path {
+    transition: stroke-dashoffset 0.1s linear;
+    fill: none;
+    stroke: var(--color-scroll-up-path);
+    stroke-width: var(--progress-width);
+    stroke-linecap: round;
+  }
+}
